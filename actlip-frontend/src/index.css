@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pirate+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@keyframes scroll{
+    from{
+        transform: translateX(0);
+
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+.slider{
+    overflow: hidden;
+    padding: 60px, 0;
+    background: white;
+   
+}
+
+.slider:hover .slide-track{
+    animation-play-state: paused;
+}
+
+.slider .slide-track{
+    display: flex;
+    animation: scroll 10s linear infinite;
+    display: flex;
+    width: calc(250px * 5);
+}
+
+.slider .slide{
+    /* height: 100px; */
+    width: 250px;
+}
+
+ol li {
+    margin: 3px 12px 3px 12px;
+  }
+
+  ol{list-style-type: decimal;}
+
+  .loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading svg{
+    font-size: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    animation: text 1s ease-in-out infinite;
+}
+@keyframes text{
+    50%{ opacity: 0.1 }
+}
+.loading polygon{
+    stroke-dasharray: 22;
+    stroke-dashoffset: 1;
+    animation: dash 4s cubic-bezier(0.455, 0.03, 0.515, 0.955) 
+    infinite alternate-reverse;
+}
+@keyframes dash{
+    to {stroke-dashoffset: 234;}
+}
+
+.status_modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #0008;
+    z-index: 4;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+}
+
+ .status_modal form{
+    max-width: 450px;
+    width: 100%;
+    background: white;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+ .status_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    transform: translateY(-13px);
+}
+
+ .status_header span{
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transform: translate(-5px);
+}
+
+ .status_body textarea{
+    width:100% ;
+    min-height: 150px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.status_body .input_images{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+   
+}
+
+.status_body .input_images i{
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+ .status_body .input_images .file_upload{
+    overflow: hidden;
+    margin: 0 10px;
+    position: relative;
+}
+
+ .status_body .input_images .file_upload #file{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.status_body .show_images{
+    max-height: 270px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr) );
+    place-items: center;
+    padding: 10px 0;
+    grid-gap: 10px;
+}
+
+.status_body .show_images #file_img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.status_body .show_images #file_img img,
+.status_body .show_images #file_img video{
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    max-height: 100px;
+}
+
+.status_body .show_images #file_img span{
+    position: absolute;
+    top: 1px;
+    right: -2px;
+    z-index: 4;
+    background: white;
+    color: crimson;
+    padding: 3px 7px;
+    border: 1px solid crimson;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.status_body .stream span{
+    position: absolute;
+    top: -10px;
+    right: 5px;
+    color: crimson;
+    font-size: 2rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.status_body .dropdown-menu{
+    transform: translate3d(-300px, -190px, 0px) !important;
+}
+
+.post_thumb{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    justify-content: center;
+    grid-gap: 5px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.post_thumb_display{
+    min-width: 150px;
+    height: 150px;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.post_thumb_display img,
+.post_thumb_display video{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.post_thumb_display .post_thumb_menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0008;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.post_thumb_display:hover .post_thumb_menu{
+    opacity: 1;
+}
+
+.post_thumb_display .post_thumb_menu i{
+    font-size: 13px;
+    color: white;
+    margin: 0 20px;
+}
+
+
+
+  
